@@ -4,7 +4,7 @@
     --accent-color: #28A745;
     --background-color: #F8F9FA;
     --text-color: hsl(210, 11%, 15%);
-    --hover-color: #0056b3;
+    --hover-color: #eaeff6;
 }
 
 body {
@@ -15,6 +15,7 @@ body {
     color: var(--text-color);
 }
 
+/* Header Styles */
 header {
     position: relative;
     height: 100vh;
@@ -74,17 +75,40 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #fff !important; /* Ensure the link color is white */
     text-decoration: none;
     font-size: 1.2rem;
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
+    transition: color 0.3s, transform 0.3s, box-shadow 0.3s; /* Include transform and box-shadow transitions */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #fff !important; /* Ensure underline color is white */
+    transition: width 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: var(--hover-color);
-    color: #fff;
+    color: var(--hover-color) !important; /* Change text color on hover */
+    transform: scale(1.1); /* Advanced hover effect: Slightly enlarge the link */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+}
+
+nav ul li a:hover::after {
+    width: 100%; /* Show underline on hover */
+}
+
+/* Optional: Additional styles for header content */
+header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .cta-button {
@@ -278,7 +302,7 @@ footer {
 .contact-item a:hover {
     color: var(--accent-color);
 }
-/* General Styles */
+/* General Styles
 :root {
     --primary-color: #007BFF;
     --secondary-color: #343A40;
@@ -295,7 +319,7 @@ body {
     padding: 0;
     background-color: var(--background-color);
     color: var(--text-color);
-}
+} */
 
 /* Header Styles */
 /* (Keep as provided in the initial code) */
@@ -465,4 +489,129 @@ footer p {
 
 .read-more:hover {
     color: var(--accent-color);
+}
+.social-media {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.social-media a {
+    margin: 0 10px;
+}
+
+.social-media img {
+    width: 24px;
+    height: 24px;
+}
+@media (max-width: 768px) {
+    header, footer {
+        text-align: center;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+    
+    .social-media img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    header, footer {
+        text-align: center;
+    }
+
+    nav ul {
+        display: block;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .social-media img {
+        width: 28px;
+        height: 28px;
+    }
+}
+nav ul li a {
+    position: relative;
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #333;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    
+    color: #fff; /* Change text color to white */
+    transform: scale(1.1); /* Advanced hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+}
+
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+.intro {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.intro h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.intro h2:hover {
+    transform: scale(1.05); /* Slightly enlarge the heading on hover */
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.intro-text:hover {
+    transform: translateY(-5px); /* Lift the text up on hover */
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+}
+
+/* Add responsive design for better viewing on smaller screens */
+@media (max-width: 768px) {
+    .intro {
+        padding: 1rem;
+    }
+
+    .intro h2 {
+        font-size: 2rem;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+    }
 }
